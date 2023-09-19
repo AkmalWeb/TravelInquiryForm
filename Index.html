@@ -35,7 +35,7 @@
             </div>
             <div>
                 <label for="hotelLink">Hotel (preferred):</label>
-                <input type="url" id="hotelLink" placeholder="Enter hotel URL" oninput="showHotelNote()">
+                <input type="url" id="hotelLink" placeholder="Hotel details or URL" oninput="showHotelNote()">
                 <p id="returnDateNote" style="display: none; color: Maroon;">You may be eligible for a business class seat for air travel with direct durations of more than 10 hours.</p>
                 <p id="hotelNote" style="display: none; color: Maroon;">Hotel cost must not exceed €200 per night, if so, get management approval.</p>
             </div>
@@ -46,13 +46,13 @@
             <legend><h4>Customer Information</h4></legend>
             <div>
                 <label for="customerName">Customer Name:</label>
-                <input type="text" id="customerName" required placeholder="On-site PoC" oninput="showCustomerNameNote()">
+                <input type="text" id="customerName" required placeholder="On-site contact" oninput="showCustomerNameNote()">
             </div>
             <div>
                 <label for="customerAddress">Customer Address:</label>
                 <input type="text" id="customerAddress" required placeholder="Company name and address">
             </div>
-            <p id="customerNameNote" style="display: none; color: blue;">For administration only. When visiting an event, enter the event name and the address.</p>
+            <p id="customerNameNote" style="display: none; color: Maroon;">For administration only. When visiting an event, enter the event name and the address.</p>
         </fieldset>
 
         <!-- Car Rental -->
@@ -146,7 +146,7 @@
             </div>
             <div>
                 <label for="reasonForTravel">Reason for travel:</label>
-                <textarea id="reasonForTravel" rows="2" cols="25" required></textarea>
+                <textarea id="reasonForTravel" rows="2" cols="50" required></textarea>
             </div>
         </fieldset>
 
@@ -425,7 +425,7 @@ function showReturnDateNote() {
 <!-- footer section Start -->
       <!-- Donate section start -->
       <h5>
-	  <p class="Donate_text">I made this in my private time.</p>
+	   <!-- <p class="Donate_text">I made this in my private time.</p>-->
             <p class="Donate_text">Did I save your time?<a href="https://www.paypal.com/donate/?hosted_button_id=8TFNXVNPKKX9Q"target="_blank" rel="noopener noreferrer"> Show appreciation here.</a></p>
         
         <div class="Donate_section">
@@ -438,7 +438,8 @@ function showReturnDateNote() {
       
             <p class="copyright_text">By Akmal Zakeryaev 2023 All Rights Reserved (At your own risk).
               <a href="https://en.wikipedia.org/wiki/Copyright"target="_blank" rel="noopener noreferrer"> Copy Rights.</a></p>
-            <div class="feedback">Share your feedback: <a href="https://ncv.microsoft.com/vpssNQPKlV"target="_blank" rel="noopener noreferrer">Feedback form.</a>></div>
+            
+			<div class="feedback">Share your feedback: <a href="https://ncv.microsoft.com/vpssNQPKlV"target="_blank" rel="noopener noreferrer">Feedback form.</a>></div>
          
          </h5>
          <div class="copyright_section">
