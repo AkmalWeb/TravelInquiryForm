@@ -341,8 +341,9 @@
         if (managerApproved === 'yes' && managerEmail) {
             body += `CC: ${managerEmail}\n`;
         }
-        const mailtoURL = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoURL;
+        const mailtoURL = `mailto:travel_nl@moog.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&cc=${managerEmail}`;
+window.location.href = mailtoURL;
+
     }
 	
 
