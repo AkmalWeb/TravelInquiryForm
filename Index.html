@@ -10,7 +10,8 @@
 
   gtag('config', 'G-CEGTWJZLXY');
 </script>
-<meta charset="UTF-8">
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Inquiry Form</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -20,83 +21,104 @@
 </head>
 <body>
     <h1>Travel Inquiry Form</h1>
+	<h5>Generate a prefilled email for the travel agency with all the required information. Your mail app must be open.</h5>
+
     <form id="travelForm">
         <!-- Traveler Information -->
         <fieldset>
             <legend><h4>Traveler Information</h4></legend>
             <div>
-                <label for="travelerName">Traveler(s) Name:</label>
-                <input type="text" id="travelerName" required placeholder="First Last Name">
+                <label for="travelerName">Traveler(s) Name:*</label>
+                <input type="text" id="travelerName" required placeholder="First Last Name as in passport">
             </div>
             <div>
-                <label for="fromAirport">From:</label>
+                <label for="fromAirport">From:*</label>
                 <input type="text" id="fromAirport" required placeholder="City, Country">
             </div>
             <div>
-                <label for="destinationAirport">Destination:</label>
+                <label for="destinationAirport">Destination:*</label>
                 <input type="text" id="destinationAirport" required placeholder="City, Country">
             </div>
             <div>
-                <label for="departureDate">Departure Date:</label>
+                <label for="departureDate">Departure Date:*</label>
                 <input type="date" id="departureDate" required>
-                <label for="returnDate">Return Date:</label>
+                <label for="returnDate">Return Date:*</label>
                 <input type="date" id="returnDate" required oninput="showReturnDateNote()">
             </div>
             <div>
                 <label for="hotelLink">Hotel (preferred):</label>
-                <input type="url" id="hotelLink" placeholder="Hotel details or URL" oninput="showHotelNote()">
-                <p id="returnDateNote" style="display: none; color: Maroon;">You may be eligible for a business class seat for air travel with direct durations of more than 10 hours.</p>
-                <p id="hotelNote" style="display: none; color: Maroon;">Hotel cost must not exceed €200 per night, if so, get management approval.</p>
+                <input type="url" id="hotelLink" placeholder="Hotel details or URL weblink" oninput="showHotelNote()">
+                 <p id="hotelNote" style="display: none; color: Maroon;">Note: Hotel cost must not exceed €200 per night, if so, get management approval.</p>
             </div>
-        </fieldset>
+        </fieldset>	
+<!-- Travel by Air -->
+<fieldset>
+    <legend><h4>Travel by Air</h4></legend>
+    <div>
+        <label for="TravelByAir">Travel by Air:</label>
+        <select id="TravelByAir" onchange="toggleTravelByAirFields()">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+    <div id="TravelByAirFields" style="display: none;">
+        <div>
+            <label for="TravelByAirLuggage">Check-in Luggage:</label>
+            <input type="text" id="TravelByAirLuggage">
+        </div>
+    </div>
+    <p id="TravelByAirNote" style="display: none; color: Maroon;">Note: You may be eligible for a business class seat for air travel with direct durations of more than 10 hours. Check the Moog BV policy.</p>
+</fieldset>
 
-        <!-- Customer Information -->
+<!-- Car Rental --> 
+<fieldset>
+    <legend><h4>Car Rental</h4></legend>
+    <div>
+        <label for="carRental">Car rental:</label>
+        <select id="carRental" onchange="toggleCarRentalFields()">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+    <div id="carRentalFields" style="display: none;">
+        <div>
+            <label for="carPickupLocation">Car rental pick-up location:</label>
+            <input type="text" id="carPickupLocation">
+        </div>
+        <div>
+            <label for="carPickupDate">Car rental pick-up date:</label>
+            <input type="date" id="carPickupDate">
+        </div>
+        <div>
+            <label for="carDropOffDate">Car rental drop-off date:</label>
+            <input type="date" id="carDropOffDate">
+        </div>
+    </div>
+    <p id="carRentalNote" style="display: none; color: Maroon;">Note: Taking a Taxi/Uber is recommended for safety and convenience unless the distance or the stay period is long. Renting a car must not exceed €150 per day.</p>
+</fieldset>
+
+ <!-- Customer Information -->
         <fieldset>
             <legend><h4>Customer Information</h4></legend>
             <div>
                 <label for="customerName">Customer Name:</label>
-                <input type="text" id="customerName" required placeholder="On-site contact" oninput="showCustomerNameNote()">
+                <input type="text" id="customerName"placeholder="On-site contact" oninput="showCustomerNameNote()">
             </div>
             <div>
                 <label for="customerAddress">Customer Address:</label>
-                <input type="text" id="customerAddress" required placeholder="Company name and address">
+                <input type="text" id="customerAddress"placeholder="Company name and address">
             </div>
-            <p id="customerNameNote" style="display: none; color: Maroon;">For administration only. When visiting an event, enter the event name and the address.</p>
+            <p id="customerNameNote" style="display: none; color: Maroon;">Note: For administration only. When visiting an event, enter the event name and the address.</p>
         </fieldset>
 
-        <!-- Car Rental -->
-        <fieldset>
-            <legend><h4>Car Rental</h4></legend>
-            <div>
-                <label for="carRental">Car rental:</label>
-                <select id="carRental" onchange="toggleCarRentalFields()">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
-                </select>
-            </div>
-            <div id="carRentalFields" style="display: none;">
-                <div>
-                    <label for="carPickupLocation">Car rental pick-up location:</label>
-                    <input type="text" id="carPickupLocation">
-                </div>
-                <div>
-                    <label for="carPickupDate">Car rental pick-up date:</label>
-                    <input type="date" id="carPickupDate">
-                </div>
-                <div>
-                    <label for="carDropOffDate">Car rental drop-off date:</label>
-                    <input type="date" id="carDropOffDate">
-                </div>
-                <p id="carRentalNote" style="display: none; color: Maroon;">Taking a Taxi/Uber is recommended for safety and convenience unless the distance or the stay period is long. Renting a car must not exceed €150 per day.</p>
-            </div>
-        </fieldset>
+
 
         <!-- Additional Information -->
         <fieldset>
             <legend><h4>Additional Information</h4></legend>
             <div>
                 <label for="CRMID">CRM/Case Id:</label>
-                <input type="text" id="CRMID" required placeholder="Required">
+                <input type="text" id="CRMID" placeholder="Required">
             </div>
             <div>
                 <label for="projectNumber">Project number:</label>
@@ -107,9 +129,9 @@
                 <input type="text" id="orderNumber" placeholder="Optional">
             </div>
             <div>
-                <label for="costCenter">Cost center:</label>
+                <label for="costCenter">Cost center:*</label>
                 <select id="costCenter">
-                    <option value="0" selected>Choose your dept.</option>
+                    <option value="0" required selected>Choose your dept.</option>
                     <option value="8006500">8006500 Appl. Eng. Sim & Test</option>
 					    <option value="8006550">8006550 Appl. Eng. Sim & Test US</option>
     <option value="8001100">8001100 Assembly & Test</option>
@@ -142,6 +164,7 @@
     <option value="8004100">8004100 Technical Services EMEA</option>
     <option value="8034900">8034900 Trade Compliance</option>
     <option value="8035300">8035300 Transform. Office</option>
+	<option value="1234567">1234567 Marketing</option>
                     <!-- Add more options here -->
                 </select>
             </div>
@@ -151,7 +174,7 @@
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
                 </select>
-                <p id="quotedCostsNote" style="display: none; color: maroon;">If yes, your travel costs need to be approved by the customer before booking.</p>
+                <p id="quotedCostsNote" style="display: none; color: maroon;">Note: If yes, your travel costs need to be approved by the customer before booking.</p>
             </div>
             <div>
                 <label for="reasonForTravel">Reason for travel:</label>
@@ -180,9 +203,10 @@
         <button type="button" id="toggleBreakdownButton" onclick="toggleBreakdown()">Show/Hide Travel Cost Breakdown</button>
         <div id="travelCostBreakdown" style="display: none;">
             <h3>Travel Cost Breakdown</h3>
+			<h4>Change values for cost calculation</h4>
             <div>
                 <label for="baseFlightFee">Base Flight Fee (in Euros):</label>
-                <input type="number" id="baseFlightFee" value="3000">
+                <input type="number" id="baseFlightFee" value="1000">
             </div>
             <div>
                 <label for="hotelFee">Hotel Fee (per night in Euros):</label>
@@ -281,6 +305,16 @@
         }
 
         costBreakdownDiv.style.display = "block"; // Show the cost breakdown section
+    }
+
+  function toggleTravelByAirFields() {
+        const travelByAir = document.getElementById('TravelByAir').value;
+        const travelByAirFields = document.getElementById('TravelByAirFields');
+        if (travelByAir === 'yes') {
+            travelByAirFields.style.display = 'block'; // Show Check-in Luggage field
+        } else {
+            travelByAirFields.style.display = 'none'; // Hide Check-in Luggage field
+        }
     }
 
     function toggleCarRentalFields() {
@@ -393,9 +427,7 @@ window.location.href = mailtoURL;
             carRentalNote.style.display = 'none'; // Hide the note.
         }
     }
-function showReturnDateNote() {
-        const returnDate = document.getElementById('returnDate');
-        const returnDateNote = document.getElementById('returnDateNote');
+
 
         // Date difference calculation (assuming the return date is after the departure date).
         const departureDate = new Date(document.getElementById('departureDate').value);
@@ -408,7 +440,7 @@ function showReturnDateNote() {
         } else {
             returnDateNote.style.display = 'none'; // Hide the note.
         }
-    }
+    
 	
 	function showCustomerNameNote() {
         const customerName = document.getElementById('customerName');
@@ -430,8 +462,21 @@ function showReturnDateNote() {
             quotedCostsNote.style.display = 'none'; // Hide the note.
         }
     }
+	 function toggleTravelByAirFields() {
+        const travelByAir = document.getElementById('TravelByAir').value;
+        const travelByAirFields = document.getElementById('TravelByAirFields');
+        const travelByAirNote = document.getElementById('TravelByAirNote');
+        
+        if (travelByAir === 'yes') {
+            travelByAirFields.style.display = 'block'; // Show Check-in Luggage field
+            travelByAirNote.style.display = 'block'; // Show the note
+        } else {
+            travelByAirFields.style.display = 'none'; // Hide Check-in Luggage field
+            travelByAirNote.style.display = 'none'; // Hide the note
+        }
+    }
+ 	
 </script>
-	   
 
 <!-- footer section Start -->
       <!-- Donate section start -->
