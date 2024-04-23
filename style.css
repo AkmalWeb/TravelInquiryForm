@@ -3,7 +3,9 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-color: #E5E0D7;
+}
 /* Center the page content */
 .container {
   width: 80%;
@@ -75,6 +77,4 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-body {
-  background-color: #E5E0D7;
-}
+
