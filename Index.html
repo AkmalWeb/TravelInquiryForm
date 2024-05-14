@@ -544,23 +544,30 @@ function composeEmail() {
       const subject = `Travel Itinerary ${travelerName} | Travel Date: ${departureDateValue} | ${destinationAirport} | Project: ${projectNumber} | Case ID: ${CRMID} |`;
     let body = `Dear Travel team,\n` +
                `I'd like to request a travel itinerary for the following traveler:\n\n` +
-               `Traveler Name: ${travelerName || 'N/A'}\n` +
-               `Traveler Name: ${travelerName2 || 'N/A'}\n\n` +
-               `From: ${fromAirport || 'N/A'}\t\t` +
+               
+               
+               `[ Traveler Details ]\n`+
+               `[---------------------------------------------------]\n`+
+               `Traveler Name 1: ${travelerName || 'N/A'}\n` +
+               `Traveler Name 2: ${travelerName2 || 'N/A'}\n\n` +
+               
+               `From: ${fromAirport || 'N/A'}\t\t\t` +
                `Destination: ${destinationAirport || 'N/A'}\n` +
-               `Departure Date: ${departureDateValue || 'N/A'}\t` +
-               `- ${departureTime || 'N/A'}\n` +
-               `Return Date: ${returnDateValue || 'N/A'}\t` +
+               `Departure Date: ${departureDateValue || 'N/A'}` +
+               `- ${departureTime || 'N/A'}\t\t` +
+               `Return Date: ${returnDateValue || 'N/A'}` +
                `- ${returnTime || 'N/A'}\n\n`;
 
-    // Travel by Air details
+    
+    body += `[ Travel Details ]\n`;
+    body += `[---------------------------------------------------]\n`;
     body += `Travel by Air: ${travelByAir === 'yes' ? 'Yes' : 'No'}\n`;
     if (travelByAir === 'yes') {
         body += `Check-in Luggage: ${travelByAirLuggage || 'N/A'}\n`;
-        body += `Comments: ${travelByAirComments || 'N/A'}\n\n`;
+        body += `Comments: ${travelByAirComments || 'N/A'}\n`;
     }
 
-   // Car Rental details
+  body += `\n`;
 body += `Car rental: ${carRental === 'yes' ? 'Yes' : 'No'}\n`;
 if (carRental === 'yes') {
     body += `Car rental pick-up location: ${document.getElementById('carPickupSameAsDestination').checked ? destinationAirport : carPickupLocation || 'N/A'}\n`;
@@ -569,7 +576,7 @@ if (carRental === 'yes') {
     body += `Comments: ${carRentalComments || 'N/A'}\n\n`;
 }
 
-
+body += `\n`;
 body += `Accommodation: ${accommodation === 'yes' ? 'Yes' : 'No'}\n`;
 if (accommodation === 'yes') {
     body += `Hotel (preferred): ${document.getElementById('accommodationSameAsDestination').checked ? destinationAirport : hotelLink || 'N/A'}\n`;
@@ -578,7 +585,9 @@ if (accommodation === 'yes') {
     body += `Comments: ${accommodationComments || 'N/A'}\n\n`;
 }
 
-
+	body += `\n\n`;
+ 	body += `[ Additional Details ]\n`;
+    body += `[---------------------------------------------------]\n`;
     body += `Customer Name: ${customerName || 'N/A'}\n`;
     body += `Customer Address: ${customerAddress || 'N/A'}\n\n`;
 
@@ -589,6 +598,10 @@ if (accommodation === 'yes') {
     body += `Cost Center: ${costCenter || 'N/A'}\n\n`;
     body += `Quoted as actual costs?: ${quotedCosts === 'yes' ? 'Yes' : 'No'}\n`;
     body += `Reason for travel: ${reasonForTravel || 'N/A'}\n\n`;
+    
+    
+     body += `[ Cost Details ] (internal reference only)\n`;
+     body += `[---------------------------------------------------]\n`;
    body += `Total estimated costs: ${totalCost || 'N/A'} Euros\n`;
   	body += `Breakdown: ${breakdownSummary}\n`;
   body += `Ensure that the costs are within the project or purchase order budget. \n\n`;
